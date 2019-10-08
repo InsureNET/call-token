@@ -1,0 +1,69 @@
+{
+  "name": "call_token",
+  "version": "1.0.0",
+  "description": "CALL Token",
+  "keywords": [
+    "ERC20",
+    "ERC777",
+    "Token",
+    "Solidity",
+    "Ethereum"
+  ],
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node .bin/test.js",
+    "sol-compile": "solcpiler -i './contracts/*.sol'",
+    "sol-lint": "node_modules/solhint/solhint.js --formatter ../../../eslint-formatter-stylish-verbose contracts/**/*.sol contracts/*.sol",
+    "js-lint": "node_modules/eslint/bin/eslint.js --max-warnings 0 --format eslint-formatter-stylish-verbose test/ migrations/ .bin/",
+    "lint": "npm run sol-lint && npm run js-lint",
+    "check": "npm run lint && npm run build && npm run test",
+    "build": "npm run clean && npm run sol-compile",
+    "prepublishOnly": "npm install && npm run build",
+    "clean": "rm -rf ./build",
+    "coverage": "node ./node_modules/solidity-coverage/bin/exec.js",
+    "truffle": "node ./node_modules/truffle/build/cli.bundled.js",
+    "ganache": "ganache-cli -g 2000000000 -l 8000000 -i 999 -p 7545"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Global-Crypto-Alliance/call-token.git"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Global-Crypto-Alliance/call-token/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "erc1820": "0.0.2",
+    "openzeppelin-solidity": "^2.3.0"
+  },
+  "devDependencies": {
+    "bignumber.js": "git+https://github.com/frozeman/bignumber.js-nolookahead.git",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
+    "eip55": "^1.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-formatter-pretty": "^2.1.1",
+    "eslint-formatter-stylish-verbose": "0.0.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "ganache-cli": "^6.7.0",
+    "jshint-esnext": "^2.7.0-3",
+    "openzeppelin-test-helpers": "^0.4.3",
+    "random-bytes": "^1.0.0",
+    "solcpiler": "^1.0.0-beta.10",
+    "solhint": "^2.3.0",
+    "solidity-coverage": "^0.6.7",
+    "truffle": "^5.0.39",
+    "web3": "1.2.1",
+    "web3-typescript-typings": "^0.10.2"
+  }
+}
